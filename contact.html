@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Contact - Seung Jun Lee</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <!-- Three dots icon -->
+  <div class="menu-icon" onclick="toggleMenu()">
+    &#x22EE; <!-- Vertical Ellipsis Unicode Character -->
+  </div>
+
+  <!-- Hidden Menu (initially hidden) -->
+  <nav id="menu" class="hidden">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About Me</a></li>
+      <li><a href="portfolio.html">Portfolio</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section class="main-content">
+  <h1>Contact Me</h1>
+  <div class="contact-info">
+    <p><strong>Personal Email:</strong> <a href="mailto:ktf020806@gmail.com">ktf020806@gmail.com</a></p>
+    <p><strong>School Email:</strong> <a href="mailto:slee3675@gatech.edu">slee3675@gatech.edu</a></p>
+    <p>Feel free to reach out to me via email for any inquiries or collaboration opportunities.</p>
+  </div>
+</section>
+
+<footer>
+  <p>&copy; 2024 Seung Jun Lee. All rights reserved.</p>
+</footer>
+
+<script>
+  // Function to toggle the visibility of the menu
+  function toggleMenu() {
+    const menu = document.getElementById('menu');
+    menu.classList.toggle('hidden');
+  }
+</script>
+</body>
+</html>
