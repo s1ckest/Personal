@@ -3,45 +3,64 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    scroll-behavior: smooth;
 }
 
 /* Body Styling */
 body {
-    font-family: 'Times New Roman', Times, serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
-    background-color: #333; /* Gray background */
-    color: white; /* White font color */
+    background-color: #f0f2f5; /* Softer light gray background for a professional feel */
+    color: #333; /* Dark gray text for better readability */
     height: 100vh;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    animation: fadeIn 1.5s ease-in;
 }
 
-/* Header with Menu Icon */
-header {
-    position: relative;
-    padding: 10px;
-    background-color: #444; /* Slightly darker gray for the header */
-    color: white;
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
 }
 
 /* Three Dots Icon */
 .menu-icon {
     position: absolute;
-    top: 10px;
-    left: 10px;
-    font-size: 24px;
+    top: 20px;
+    right: 20px;
+    font-size: 28px;
     cursor: pointer;
+    color: #333;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.menu-icon:hover {
+    color: #007BFF; /* Blue color for hover effect */
+    transform: rotate(90deg) scale(1.2); /* Rotate and scale icon on hover */
 }
 
 /* Hidden Menu */
 #menu {
     position: absolute;
-    top: 50px;
-    left: 10px;
-    background-color: #333;
-    border-radius: 5px;
+    top: 70px;
+    right: 20px;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
     display: none;
-    padding: 10px;
+    padding: 20px;
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: all 0.5s ease;
+}
+
+#menu:not(.hidden) {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
 }
 
 /* Show Menu when not hidden */
@@ -51,68 +70,110 @@ header {
 }
 
 #menu ul li {
-    margin: 10px 0;
+    margin: 15px 0;
 }
 
 #menu ul li a {
-    color: #fff;
+    color: #333;
     text-decoration: none;
     font-size: 18px;
+    transition: color 0.3s ease, background-color 0.3s ease;
 }
 
 #menu ul li a:hover {
-    color: #f4f4f4;
-    background-color: #555;
-    padding: 5px;
-    border-radius: 3px;
-}
-
-/* Menu visibility toggle */
-.hidden {
-    display: none;
-}
-
-#menu.hidden {
-    display: none;
-}
-
-#menu:not(.hidden) {
-    display: block;
+    color: #007BFF;
+    background-color: #e9ecef;
+    padding: 10px;
+    border-radius: 8px;
 }
 
 /* Main Content */
 .main-content {
     text-align: center;
-    padding: 50px 20px;
+    padding: 80px 40px;
     flex-grow: 1;
-    background-color: #555; /* Dark gray for sections */
-    border-radius: 10px;
+    background-color: #fff;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    width: 100%;
+    margin: 40px;
+    animation: slideIn 1s ease-out;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+}
+
+@keyframes slideIn {
+    0% { transform: translateY(50px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
 }
 
 .main-content h1 {
-    font-size: 36px;
-    margin-bottom: 20px;
+    font-size: 48px;
+    margin-bottom: 30px;
+    color: #007BFF;
+    animation: bounceIn 1.2s ease;
+}
+
+@keyframes bounceIn {
+    0% { transform: scale(0.8); opacity: 0; }
+    60% { transform: scale(1.15); opacity: 1; }
+    100% { transform: scale(1); }
 }
 
 .main-content p {
-    font-size: 18px;
-    margin-bottom: 30px;
+    font-size: 22px;
+    margin-bottom: 50px;
+    color: #555;
+    line-height: 1.8;
 }
 
 /* Profile Image */
 .profile-pic {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
+    width: 100%;
+    max-width: 300px;
+    height: auto;
     margin-bottom: 20px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    animation: profilePicFadeIn 1.5s ease-in-out;
+    align-self: center;
+}
+
+@keyframes profilePicFadeIn {
+    0% { transform: scale(0); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+/* Content Sections */
+.content-section {
+    background-color: #f8f9fa;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.content-section:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
 }
 
 /* Footer */
 footer {
     text-align: center;
-    padding: 20px;
-    background-color: #444; /* Slightly darker gray for the footer */
-    color: white;
-    position: relative;
+    padding: 30px;
+    background-color: #f0f2f5;
+    color: #333;
     width: 100%;
+    border-top: 1px solid #ddd;
+    margin-top: auto;
+    animation: fadeInFooter 1.5s ease-in;
+}
+
+@keyframes fadeInFooter {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
 }
